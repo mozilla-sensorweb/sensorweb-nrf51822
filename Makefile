@@ -207,8 +207,15 @@ sdk: $(SDK)
 $(SDK): $(SDK_ZIP)
 	mkdir -p $(SDK)-unzipped
 	unzip -d $(SDK) $(SDK_ZIP)
-	for p in sdk-11.0.0-patches/*.patch; do patch -p0 < $p; done
+	for p in sdk-11.0.0-patches/*.patch; do patch -p0 < $$p; done
 	mv $(SDK)-unzipped $(SDK)
+
+# The following tells make that it needs to unpack the SDK zipfile before
+# the source files will actually exist. This is important the very first
+# time you run make (i.e. on a freshly checked out repostitory).
+#
+# Making the depenen
+$(C_SRC) $(A_SRC): | $(SDK)
 
 define compile_c
 $(ECHO) "CC $<"
@@ -270,5 +277,9 @@ flash_softdevice: $(SDK)/components/softdevice/s130/hex/s130_nrf51_2.0.0_softdev
 .PHONY: clean
 clean:
 	$(Q)$(RM) -rf $(OBJDIR)
+
+.PHONY: distclean
+distclean: clean
+	rm -rf $(SDK) $(SDK_ZIP)
 
 -include $(OBJ:.o=.P)
