@@ -7,11 +7,11 @@ processor on the SensorWeb board.
 - Install a [gcc toolchain](https://launchpad.net/gcc-arm-embedded)
 
 ## Install nRF5x-Command-Line-Tools-Linux64 (needed if flashing via nRF51-DK)
-- Download (nRF5x-Command-Line-Tools-Linux64)[https://www.nordicsemi.com/eng/nordic/Products/nRF51822/nRF5x-Command-Line-Tools-Linux64/51386].
+- Download [nRF5x-Command-Line-Tools-Linux64](https://www.nordicsemi.com/eng/nordic/Products/nRF51822/nRF5x-Command-Line-Tools-Linux64/51386).
 - untar the downloaded tarball
 - The tarball expands to 2 directories, nrfjproj and mergehex. Add the nrfjprog directory to your PATH.
 - Install the JLink DLL
-  - Visit the (SEGGER Download page)[https://www.segger.com/downloads/jlink]
+  - Visit the [SEGGER Download page](https://www.segger.com/downloads/jlink)
   - In the second section titled "J-Link Software and Documentation Pack" click on the "Click for downloads" and download and install the appropriate package.
 
 # Building the firmware
@@ -21,7 +21,7 @@ will do that automatically.
 To build the firmware, type `make`.
 
 # Flashing the firmware
-Connect the nRF51-DK to the SensorWeb board by following (these instructions)[https://github.com/mozilla-sensorweb/sensorweb-wiki/wiki/Programming-the-SensorWeb-nRF51822-using-an-nRF51DK]
+Connect the nRF51-DK to the SensorWeb board by following [these instructions](https://github.com/mozilla-sensorweb/sensorweb-wiki/wiki/Programming-the-SensorWeb-nRF51822-using-an-nRF51DK)
 
 ## Flash the softdevice
 This should only have to be done once.
